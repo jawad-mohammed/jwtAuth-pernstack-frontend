@@ -28,11 +28,13 @@ const response = await fetch(`http://localhost:8000/routes/api/v1/login`,{
 const parseRes = await response.json()
 if(parseRes.jwtToken){
   localStorage.setItem("token", parseRes.jwtToken);
-  alert(parseRes.message)
+  //alert(parseRes.message)
+
   navigate('/home')
 }else{
   navigate('/login')
   alert(` ${parseRes.message}`)
+
 }
 
 }
@@ -48,7 +50,7 @@ if(parseRes.jwtToken){
 <form onSubmit={handleSubmit}>
 Email <br /><input type="text" name='Email' value={Email} onChange={handleChange}  required/><br />
 Password <br /><input type="text" name='Password' value={Password} onChange={handleChange} required /><br />
-<button type='submit'>Register</button>
+<button type='submit'>Login</button>
 </form>
 
 

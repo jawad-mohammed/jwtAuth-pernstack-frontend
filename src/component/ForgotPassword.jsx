@@ -1,22 +1,36 @@
 import {useState} from 'react'
-
+import { useNavigate } from 'react-router-dom' 
 const ForgotPassword = () => {
   const [mobileNum,setMobileNum] = useState('')
+//navigate
+const navigate = useNavigate()
 
   const handleSubmit =async(e)=>{
 e.preventDefault()
-// const body = mobileNum
-// console.log(body);
-const res = await fetch(`http://localhost:8000/protectedroutes/forgotpassword`)
-const resjson = await res.json()
-alert(resjson.mess)
+const body = mobileNum;
+//console.log(body);
+const verifyUser = await fetch(`http://localhost:8000/protectedroutes/forgotpassword`,{
+  method: "POST",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "text/plain"
+        },//"mode" : "no-cors",
+   body:JSON.stringify(body)
+})
+const parseRes = await verifyUser.json()
+
+if(parseRes.verifyUser){
+  navigate('/home')
+}
+
+
   }
   return (
     <>
     <h2>Forgot password</h2>
     <form onSubmit={handleSubmit}>
 <input type="text" name='mobileNum' value={mobileNum} 
-onChange={(e)=>setMobileNum(e.target.value)} />
+onChange={(e)=>setMobileNum(e.target.value)}  required/>
 <button type='submit'>submit</button>
 
 

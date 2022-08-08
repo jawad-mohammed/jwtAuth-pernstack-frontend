@@ -33,9 +33,9 @@ setUserDetails({...userDetails,[e.target.name]:e.target.value})
 const navigate = useNavigate()
 
 useEffect(()=>{
-axios.post(`http://localhost:8000/routes/api/v1/otp`)
-.then((res)=>window.confirm(res.data) && otpState && res.data ?   navigate('/login') :'incorrect')
-.catch((err)=>console.warn(err))
+// axios.post(`http://localhost:8000/routes/api/v1/otp`)
+// .then((res)=>window.confirm(res.data) )
+// .catch((err)=>console.warn(err))
 
 },[])
 
@@ -69,6 +69,7 @@ const body = userDetails
  if(parseRes.jwtToken){
    localStorage.setItem("newToken",parseRes.jwtToken)
    alert('registered new user')
+ //  alert(parseRes.jwtToken)
   navigate('/home')
  }
 

@@ -11,6 +11,7 @@ import Employee from './Roles/Employee';
 import HR from './Roles/HR';
 import Logout from './component/Logout';
 import ForgotPassword from './component/ForgotPassword';
+import Products from './ManageProducts/Products';
 function App() {
   return (
 <>
@@ -30,6 +31,7 @@ function App() {
   <Route path='/hr' element={<HR/>}/>
   <Route path='/logout' element={<Logout/>}/>
   <Route path='/forgotpassword' element={<ForgotPassword/>}/>
+  <Route path='/manageproduct' element={<Products/>}/>
 </Routes>
 </BrowserRouter>
 </div>
