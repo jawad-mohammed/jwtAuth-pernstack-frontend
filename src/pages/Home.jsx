@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Logout from '../component/Logout'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import IndividualDetails from './IndividualDetails'
 const Home = () => {
 const [displayProducts,setDisplayProducts] = useState([])
 const navigate = useNavigate()
@@ -35,6 +36,11 @@ navigate('/manageproduct')
 
   return (
 <>
+<div style={{display:'grid',justifyContent:'center',paddingLeft:'30px'}}>
+ <IndividualDetails/>
+</div>
+
+
 <div>
 
 <h3>Welcome to shopping center</h3>
@@ -66,9 +72,13 @@ return(<div style={{display:'grid'}}>
  </div>
 <div style={{display:'grid',justifyContent:'center'}}>
  <li >
-        
-        </li>
-        </div>
+ </li>
+ </div>
+
+
+
+
+
 
 
     </>

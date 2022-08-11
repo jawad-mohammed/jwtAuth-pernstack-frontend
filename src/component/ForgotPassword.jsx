@@ -8,19 +8,18 @@ const navigate = useNavigate()
   const handleSubmit =async(e)=>{
 e.preventDefault()
 const body = mobileNum;
-//console.log(body);
+console.log(body);
 const verifyUser = await fetch(`http://localhost:8000/protectedroutes/forgotpassword`,{
   method: "POST",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "text/plain"
-        },//"mode" : "no-cors",
+   headers: {'Content-type':'application/json'},
    body:JSON.stringify(body)
 })
 const parseRes = await verifyUser.json()
 
 if(parseRes.verifyUser){
+  // alert(parseRes.verifyUser.message)
   navigate('/home')
+
 }
 
 

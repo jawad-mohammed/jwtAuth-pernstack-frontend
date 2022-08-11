@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Layout from './Layout'
 import {useNavigate } from 'react-router-dom'
+import IndividualDetails from '../pages/IndividualDetails'
 const Login = () => {
 
   const [userDetails,setUserDetails] =useState({
@@ -29,8 +30,8 @@ const parseRes = await response.json()
 if(parseRes.jwtToken){
   localStorage.setItem("token", parseRes.jwtToken);
   //alert(parseRes.message)
+ navigate('/home')
 
-  navigate('/home')
 }else{
   navigate('/login')
   alert(` ${parseRes.message}`)
@@ -53,7 +54,7 @@ Password <br /><input type="text" name='Password' value={Password} onChange={han
 <button type='submit'>Login</button>
 </form>
 
-
+{/* <IndividualDetails/> */}
 
 
     </div>
